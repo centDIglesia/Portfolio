@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ParticlesBackground from "@/components/ParticlesBackground";
+import { SiteNavbar } from "@/components/site-navbar";
+import { ProgressiveBlur } from "@/components/ui/progressive-blur";
+import localFont from "next/font/local";
+import { Component as EtheralShadow  } from "@/components/etheral-shadow";
 
-const geistSans = Geist({
+
+export const main = localFont({
+  src: "../font/main.woff2",
+});
+
+export const sub = localFont({
+  src: "../font/sub.woff2",
+});
+ 
+ 
+export const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
@@ -23,11 +38,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={` ${geistMono.variable}  antialiased  relative bg-linear-to-bl from-background via-secondary to-background  `}
+        suppressHydrationWarning
       >
+
+       <div className="absolute inset-0 -z-10">
+        <EtheralShadow
+          sizing="fill"
+          noise={{ opacity: .5, scale: 1.2 }}
+          animation={{ scale: 100, speed: 50 }}
+          color="rgba(255, 255, 255, .05)"
+        />
+      </div>
+
+        <ParticlesBackground />
         {children}
+        <SiteNavbar />
+        <ProgressiveBlur
+          direction="bottom"
+          blurLayers={10}
+          blurIntensity={1}
+          className="fixed bottom-0 left-0 right-0 z-1 h-10 rounded-none"
+        />
       </body>
     </html>
   );
