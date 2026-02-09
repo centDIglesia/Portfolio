@@ -1,58 +1,62 @@
-// components/Skills.tsx
 import { main } from "@/app/layout";
+import { TECH_LOGOS } from "@/data/skills.data";
 
-const SKILLS = [
-  {
-    title: "Frontend",
-    items: [
-      "React.js",
-      "Next.js",
-      "HTML5",
-      "CSS3",
-      "Tailwind CSS",
-      "JavaScript (ES6+)",
-      "TypeScript",
-    ],
-  },
-  { title: "Backend & Database", items: ["Node.js", "Prisma ORM", "MongoDB"] },
-  { title: "Tools & Version Control", items: ["Git", "GitHub", "VS Code"] },
-  {
-    title: "UI/UX & Design",
-    items: ["Figma", "Canva", "Photoshop", "Illustrator"],
-  },
-];
+import Image from "next/image";
+import { Badge } from "./ui/badge";
 
 export default function Skills() {
   return (
-    <section className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="flex items-end justify-between gap-6">
-        <div>
-          <h2 className={`text-2xl sm:text-3xl ${main.className} text-white`}>
-            Skills
-          </h2>
-          <p className="mt-2 text-sm text-white/60">
-            Technologies and tools I use to build modern web apps.
-          </p>
-        </div>
-      </div>
+    <section
+      id="tech-stack"
+      className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8"
+    >
+     
+      <div className="rounded-3xl bg-white/10 p-2 backdrop-blur-2xl">
+       
+        <div className="grid items-center gap-10 rounded-2xl border border-black/10 bg-white p-6 shadow-2xl sm:p-8 lg:grid-cols-2">
+        
+          <div>
+            <Badge>Tech Stack & Tools</Badge>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {SKILLS.map((group) => (
-          <div
-            key={group.title}
-            className="rounded-2xl border border-white/10 bg-white/3 p-6"
-          >
-            <p className="text-sm font-semibold text-white">{group.title}</p>
-            <ul className="mt-4 space-y-2 text-sm text-white/70">
-              {group.items.map((item) => (
-                <li key={item} className="flex gap-2">
-                  <span className="mt-1.75 h-1.5 w-1.5 rounded-full bg-white/40" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <h2
+              className={`mt-4 text-3xl sm:text-4xl ${main.className} text-primary`}
+            >
+              Key Technologies & Platforms
+            </h2>
+
+            <p className="mt-3 max-w-xl text-sm leading-6 text-primary/70 sm:text-base">
+              The tools I use most often to build clean UIs, scalable features,
+              and polished experiences.
+            </p>
           </div>
-        ))}
+
+          {/* Right card with logos */}
+          <div className="relative">
+            {/* Glow */}
+            <div className="pointer-events-none absolute -inset-10 -z-10 rounded-[48px] bg-primary blur-3xl opacity-30" />
+
+            <div className="mx-auto w-full max-w-md rounded-3xl  bg-slate-50 p-6 backdrop-blur">
+              <div className="grid grid-cols-4 gap-4 sm:grid-cols-5">
+                {TECH_LOGOS.map((logo) => (
+                  <div
+                    key={logo.slug}
+                    className="flex aspect-square items-center justify-center rounded-2xl bg-white drop-shadow-xl/5"
+                    title={logo.name}
+                  >
+                    <Image
+                      alt={logo.name}
+                      src={`https://cdn.simpleicons.org/${logo.slug}?viewbox=auto`}
+                      width={28}
+                      height={28}
+                      className="opacity-100 "
+                      unoptimized
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -11,7 +11,8 @@ export default function DynamicBlurImage({ blurDataURL, ...props }: Props) {
       {...props}
       alt={"img"}
       placeholder={blurDataURL ? "blur" : "empty"}
-      blurDataURL={blurDataURL}
+          blurDataURL={blurDataURL}
+          
     />
   );
 }
