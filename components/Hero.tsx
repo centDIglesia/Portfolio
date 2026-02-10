@@ -1,10 +1,15 @@
-import { geistSans, main, sub } from "@/app/layout";
-
+import { geistSans } from "@/app/layout";
+import { main, sub } from "@/font/font";
 
 export default function Hero() {
   return (
     <section className={`relative overflow-hidden ${geistSans.variable}`}>
-      <div className="relative mx-auto flex min-h-140 max-w-6xl flex-col items-center justify-center px-4 py-20 text-center sm:px-6 lg:px-8">
+
+     
+      <div className="relative mx-auto flex min-h-100 max-w-6xl flex-col items-center justify-center px-4 py-20 text-center sm:px-6 lg:px-8">
+
+        
+
         <p
           className={`text-xs font-medium tracking-wide text-white/60 ${sub.className}`}
         >
@@ -18,7 +23,7 @@ export default function Hero() {
         </h1>
 
         <p
-          className={`mt-5 max-w-2xl text-sm leading-6 text-white/90 sm:text-base  ${sub.className}`}
+          className={`mt-5 max-w-2xl text-sm leading-6 text-white/90 sm:text-base   ${sub.className}`}
         >
           Aspiring{" "}
           <span className="bg-white text-primary px-2 rounded font-semibold ">

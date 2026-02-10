@@ -1,5 +1,5 @@
 // components/Projects.tsx
-import { main } from "@/app/layout";
+import { main } from "@/font/font";
 import Link from "next/link";
 
 const PROJECTS = [

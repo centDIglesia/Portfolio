@@ -1,12 +1,11 @@
-import { main, sub } from "@/app/layout";
+import { main, sub } from "@/font/font";
 import DynamicBlurImage from "@/components/ui/DynamicBlurImage";
 import { Badge } from "@/components/ui/badge";
 import me from "@/public/me.jpg";
-import { Palette } from "lucide-react";
-import Image from "next/image";
-import code from "@/icons/coded.svg"
-import design from "@/icons/design.svg";
 
+import Image from "next/image";
+import code from "@/icons/coded.svg";
+import design from "@/icons/design.svg";
 
 export default function About() {
   const tags = [
@@ -50,10 +49,8 @@ export default function About() {
               </div>
             </div>
 
-            {/* Glow UNDER */}
             <div className="absolute inset-x-0 -bottom-10 -z-10 mx-auto size-44 rounded-full bg-primary blur-3xl sm:size-52" />
 
-            {/* Photo card */}
             <div className="relative z-10 h-56 w-44 overflow-hidden rounded-xl border border-black/10 -rotate-3 transition-transform duration-200 ease-in-out hover:rotate-0 sm:h-60 sm:w-52">
               <DynamicBlurImage
                 src={me}

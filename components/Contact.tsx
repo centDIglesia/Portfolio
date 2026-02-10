@@ -1,5 +1,5 @@
 // components/Contact.tsx
-import { main } from "@/app/layout";
+import { main } from "@/font/font";
 import Link from "next/link";
 
 export default function Contact() {

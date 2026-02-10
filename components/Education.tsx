@@ -1,5 +1,5 @@
 // components/Education.tsx
-import { main } from "@/app/layout";
+import { main, sub } from "@/font/font";
 
 const EDUCATION = [
   {
