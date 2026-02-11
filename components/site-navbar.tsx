@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Download, Mail, Moon, Phone } from "lucide-react";
 
+
 function IconLink({
   label,
   href,
@@ -81,9 +82,15 @@ export function SiteNavbar() {
                 <Button asChild className="rounded-xl px-3">
                   {/* download attribute is not available on Link;
                     if you truly need forced download, use <a download> */}
-                  <Link href="/resume.pdf" aria-label="Resume">
+                  <a
+                    href={"/resume.pdf"}
+                 
+                    download="resume.pdf"
+                    aria-label="Download Resume"
+                    
+                  >
                     Resume <Download className="ml-2 h-4 w-4" />
-                  </Link>
+                  </a>
                 </Button>
               </TooltipTrigger>
               <TooltipContent side="top">
