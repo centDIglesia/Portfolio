@@ -42,7 +42,7 @@ export function SiteNavbar() {
 
   return (
     <TooltipProvider>
-      <nav className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 w-full">
+      <nav className="fixed bottom-5 left-1/2 z-9999 -translate-x-1/2 w-full">
         <div className="flex items-center justify-center">
           <div className="flex items-center gap-1 rounded-2xl border border-white/10 bg-white px-2 py-2 shadow-lg backdrop-blur">
             <IconLink

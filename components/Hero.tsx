@@ -1,14 +1,15 @@
-import { geistSans } from "@/app/layout";
+
 import { main, sub } from "@/font/font";
 
 export default function Hero() {
   return (
-    <section className={`relative overflow-hidden ${geistSans.variable}`}>
-
-     
+    <section className={`relative overflow-hidden `}>
       <div className="relative mx-auto flex min-h-100 max-w-6xl flex-col items-center justify-center px-4 py-20 text-center sm:px-6 lg:px-8">
-
-        
+        <div
+          className={`text-xs size-12 flex justify-center items-center shrink-0 font-black tracking-tight rounded text-primary mb-12 bg-white  ${sub.className}`}
+        >
+          Xent.js
+        </div>
 
         <p
           className={`text-xs font-medium tracking-wide text-white/60 ${sub.className}`}
