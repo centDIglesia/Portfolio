@@ -20,7 +20,7 @@ export default function ParticlesBackground() {
       fpsLimit: 60,
       detectRetina: true,
       particles: {
-        number: { value: 20, density: { enable: true } },
+        number: { value: 30, density: { enable: true } },
         color: { value: "#fff" },
         opacity: { value: 1 },
         size: { value: { min: .5, max: 1 } },

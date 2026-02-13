@@ -14,6 +14,8 @@ import { main, sub } from "@/font/font";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Component as EtheralShadow } from "@/components/etheral-shadow";
+import { FullscreenImagePreview } from "./fullscreen-image-preview";
+import { Maximize } from "lucide-react";
 
 type Project = {
   title: string;
@@ -131,6 +133,25 @@ export const AnimatedProjects = ({
               >
                 <IconArrowRight className="h-5 w-5  group-hover/button:-rotate-12 transition-transform duration-300" />
               </Button>
+
+             
+               
+
+                <FullscreenImagePreview
+                  title={project.title}
+                  images={project.images}
+                  initialIndex={activeImage}
+                  trigger={
+                    <Button
+                      variant="custom"
+                      className="h-7 w-7"
+                      aria-label="Full screen"
+                    >
+                      <Maximize className="h-5 w-5" />
+                    </Button>
+                  }
+                />
+          
             </div>
 
             <div className="absolute top-6 left-6 z-5220 flex gap-2">
@@ -158,7 +179,6 @@ export const AnimatedProjects = ({
             isRight ? "md:order-1" : "md:order-2",
           )}
         >
-          
           <motion.div
             key={active}
             initial={{ y: 20, opacity: 0 }}
@@ -171,13 +191,13 @@ export const AnimatedProjects = ({
             )}
           >
             <div className="absolute inset-0 z-10">
-            <EtheralShadow
-              sizing="fill"
-              noise={{ opacity: 0.15, scale: 1.2 }}
-              animation={{ scale: 100, speed: 100 }}
-              color="rgba(0, 0, 0, 0.1)"
-            />
-          </div>
+              <EtheralShadow
+                sizing="fill"
+                noise={{ opacity: 0.15, scale: 1.2 }}
+                animation={{ scale: 100, speed: 100 }}
+                color="rgba(0, 0, 0, 0.1)"
+              />
+            </div>
             <h3 className={`text-2xl font-bold text-primary ${main.className}`}>
               {project.title}
             </h3>

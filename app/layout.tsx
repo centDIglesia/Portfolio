@@ -23,7 +23,7 @@ export default function RootLayout({
           <EtheralShadow
             sizing="fill"
             noise={{ opacity: 0.5, scale: 1.2 }}
-            animation={{ scale: 100, speed: 50 }}
+            animation={{ scale: 100, speed: 0 }}
             color="rgba(255, 255, 255, .05)"
           />
         </div>
