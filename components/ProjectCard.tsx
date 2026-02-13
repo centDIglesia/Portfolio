@@ -106,7 +106,7 @@ export default function AnimatedTestimonialsDemo() {
     {
       title: "AyuDash Admin Dashboard",
       description:
-        "My school final project where I was assigned as the tech lead for the whole class. I designed a dual-role admin dashboard (Barangay & Municipality) with login systems and credential management for local government.",
+        "My school final project where I was assigned as the one of the two tech lead for the whole class. I designed a dual-role admin dashboard (Barangay & Municipality) with login systems and credential management for local government.",
       features: [
         "Dual-Role Admin Dashboard (Baranggay & Municipality)",
         "Credential Management System",
@@ -140,7 +140,7 @@ export default function AnimatedTestimonialsDemo() {
     {
       title: "TeachTok",
       description:
-        "An interactive educational application designed as my HCI final project. I served as tech lead, overseeing team collaboration, architecting the design system, and defining core features.TeachTok helps people learn using games and a cute mascot character. The app has a dark background with bright yellow colors and fun interactive content",
+        "An interactive educational application designed as my HCI final project. I served as one of the two tech lead, overseeing team collaboration, architecting the design system, and defining core features.TeachTok helps people learn using games and a cute mascot character. The app has a dark background with bright yellow colors and fun interactive content",
       features: [
         "Landing & Welcome Onboarding Screens",
         "Age-Based Personalization System",
