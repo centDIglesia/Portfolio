@@ -17,13 +17,13 @@ export default function AnimatedTestimonialsDemo() {
 
   return (
     <div>
-      <div className={`flex flex-wrap gap-2 justify-center border border-white/10 rounded-2xl bg-white/10 p-2 w-fit mx-auto mb-12 ${sub.className}`}>
+      <div className={`flex flex-wrap gap-2 justify-center border border-white/10 rounded-xl bg-white/10 p-1 w-fit mx-auto mb-12 ${sub.className}`}>
         {PROJECT_CATEGORIES.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
             className={cn(
-              "relative px-4 py-1.5 rounded-lg text-sm font-medium transition-colors",
+              "relative px-4 py-1.5 rounded-2xl text-sm font-medium transition-colors",
               activeCategory === cat
                 ? "text-primary"
                 : "text-white/60 hover:text-white"

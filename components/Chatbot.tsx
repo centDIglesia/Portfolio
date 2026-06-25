@@ -17,6 +17,7 @@ type Message = {
 
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showHint, setShowHint] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
@@ -28,6 +29,19 @@ export function Chatbot() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      setShowHint(false);
+      return;
+    }
+    const show = setTimeout(() => setShowHint(true), 3000);
+    const hide = setTimeout(() => setShowHint(false), 7000);
+    return () => {
+      clearTimeout(show);
+      clearTimeout(hide);
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -104,15 +118,33 @@ export function Chatbot() {
 
   return (
     <>
+      {/* Hint popup */}
+      <AnimatePresence>
+        {showHint && !isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 8, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 8, scale: 0.9 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-[4.5rem] left-1/2 -translate-x-1/2 z-[10001] pointer-events-none"
+          >
+            <div className={`rounded-xl bg-white px-3 py-1.5 text-xs font-medium text-primary shadow-lg border border-black/5 whitespace-nowrap ${sub.className}`}>
+              Ask me anything! using the chatbot.
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Trigger Button */}
       <Button
         type="button"
         size="icon"
-        className="rounded-xl ml-2  bg-primary shadow-2xl"
+        className="relative rounded-xl ml-2 bg-primary shadow-2xl overflow-hidden "
         onClick={() => setIsOpen((prev) => !prev)}
         aria-label="Toggle chatbot"
       >
-        <Bot className="size-5 text-foreground " />
+        <span className="absolute inset-0 animate-shine bg-linear-to-r from-transparent via-white/10 to-transparent" />
+        <Bot className="relative size-5 text-foreground animate-wiggle" />
       </Button>
 
       {/* Chat Window */}
