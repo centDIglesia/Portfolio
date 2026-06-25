@@ -65,7 +65,10 @@ export const AnimatedProjects = ({
     return () => clearInterval(interval);
   }, [autoplay]);
 
-  const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
+  const rotateY = (index: number) => {
+    const offsets = [4, -6, 9, -2, -7, -9, 9, 1, 7, 2, -5, 10, 3, -2, -8];
+    return offsets[index % offsets.length];
+  };
 
   return (
     <div className={cn("w-full mx-auto ", className)}>
@@ -81,13 +84,13 @@ export const AnimatedProjects = ({
                     opacity: 0,
                     scale: 0.9,
                     z: -100,
-                    rotate: randomRotateY(),
+                    rotate: rotateY(index),
                   }}
                   animate={{
                     opacity: index === activeImage ? 1 : 0.7,
                     scale: index === activeImage ? 1 : 0.95,
                     z: index === activeImage ? 0 : -100,
-                    rotate: index === activeImage ? 0 : randomRotateY(),
+                    rotate: index === activeImage ? 0 : rotateY(index),
                     zIndex:
                       index === activeImage
                         ? 999
@@ -98,7 +101,7 @@ export const AnimatedProjects = ({
                     opacity: 0,
                     scale: 0.9,
                     z: 100,
-                    rotate: randomRotateY(),
+                    rotate: rotateY(index),
                   }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                 >

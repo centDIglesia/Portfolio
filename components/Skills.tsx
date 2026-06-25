@@ -19,7 +19,7 @@ import {
   MarqueeItem,
 } from "@/components/ui/marquee";
 
-import { TECH_LOGOS, TECH_LOGOS2, TECH_LOGOS3 } from "@/data/skills.data";
+import { TECH_LOGOS, TECH_LOGOS2, TECH_LOGOS3 } from "@/data/portfolio.data";
 import { main, sub } from "@/font/font";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 

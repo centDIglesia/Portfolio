@@ -3,6 +3,7 @@
 
 import * as React from "react";
 import { main } from "@/font/font";
+import { EDUCATION, TRAININGS, OTHER_SKILLS } from "@/data/portfolio.data";
 
 import {
   Stepper,
@@ -13,37 +14,6 @@ import {
   StepperTitle,
   StepperTrigger,
 } from "@/components/ui/stepper";
-
-const EDUCATION = [
-  {
-    title:
-      "Polytechnic University of the Philippines — Santa Maria, Bulacan Campus",
-    meta: "BS Information Technology • 2022–Present",
-    note: "President’s Lister (1st Year to 3rd Year, 1st sem).",
-  },
-  {
-    title: "Immaculate Conception Polytechnic",
-    meta: "Senior High (ICT) • 2020–2022",
-    note: "With High Honors.",
-  },
-  {
-    title: "Catmon National High School — Catmon, Santa Maria, Bulacan",
-    meta: "Junior High • 2016–2020",
-    note: "With High Honors.",
-  },
-  {
-    title: "Jose Juan Serapio Elementary School",
-    meta: "Elementary • 2014–2016",
-    note: "",
-  },
-];
-
-const TRAININGS = [
-  "Know Your Enemy: A Fundamental Guide to Cybersecurity (Nov 28, 2025)",
-  "ISKOLARIUM'S MAGSUSULAT AT MAGMUMULAT: A JOURNALIST'S BATTLECRY (Mar 30, 2023)",
-];
-
-const OTHER_SKILLS = ["Photoshop", "Canva", "Adobe Illustrator", "CapCut"];
 
 export default function Education() {
   const [active, setActive] = React.useState(1);

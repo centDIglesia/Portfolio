@@ -1,6 +1,7 @@
 import { main, sub } from "@/font/font";
 import DynamicBlurImage from "@/components/ui/DynamicBlurImage";
 import { Badge } from "@/components/ui/badge";
+import { ABOUT } from "@/data/portfolio.data";
 import me from "@/public/me.jpg";
 
 import Image from "next/image";
@@ -8,13 +9,6 @@ import code from "@/icons/coded.svg";
 import design from "@/icons/design.svg";
 
 export default function About() {
-  const tags = [
-    "22 yrs old.",
-    "Santa Maria, Bulacan",
-    "BSIT • PUP Santa Maria",
-    "4th year",
-  ];
-
   return (
     <section className="flex flex-col items-start gap-6 rounded-xl border border-black/10 bg-white p-6 shadow-2xl sm:p-8 sm:px-12 md:flex-row md:items-center md:gap-12">
       {/* Image */}
@@ -71,16 +65,13 @@ export default function About() {
         <p
           className={`mt-3 max-w-3xl text-center sm:text-left text-sm leading-6 text-primary/70 sm:text-base ${sub.className}`}
         >
-          I’m a web developer and layout artist who enjoys the mix of logic and
-          creativity. I’m currently a BSIT student focused on building
-          responsive sites. When I’m not programming, I’m usually designing—I
-          love using my eye for detail to create strong visual structures.
+          {ABOUT.bio}
         </p>
 
         <div
           className={`mt-4 items-center justify-center sm:justify-start flex flex-wrap gap-2 ${sub.className}`}
         >
-          {tags.map((tag) => (
+          {ABOUT.tags.map((tag) => (
             <Badge key={tag} className="p-1 px-2">
               {tag}
             </Badge>
