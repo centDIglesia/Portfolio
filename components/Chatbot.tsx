@@ -112,7 +112,7 @@ export function Chatbot() {
         onClick={() => setIsOpen((prev) => !prev)}
         aria-label="Toggle chatbot"
       >
-        <Bot className="size-5 text-foreground" />
+        <Bot className="size-5 text-foreground " />
       </Button>
 
       {/* Chat Window */}
