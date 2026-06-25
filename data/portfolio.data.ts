@@ -331,5 +331,5 @@ export const CONTACT = {
   email: "vincent.iglesia07@gmail.com",
   phone: "+63 920 334 1360",
   location: "Santa Maria, Bulacan",
-  status: "Available for internship",
+  status: "Open to entry-level opportunities",
 };

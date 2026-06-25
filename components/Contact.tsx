@@ -11,7 +11,7 @@ export default function Contact() {
         </h2>
 
         <p className="mx-auto mt-3 max-w-2xl text-sm text-primary/70 sm:text-base">
-          I'm currently looking for an internship opportunity and open to
+          I'm a fresh graduate looking for entry-level opportunities and open to
           collaboration.
         </p>
 
