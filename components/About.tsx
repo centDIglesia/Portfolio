@@ -2,7 +2,7 @@ import { main, sub } from "@/font/font";
 import DynamicBlurImage from "@/components/ui/DynamicBlurImage";
 import { Badge } from "@/components/ui/badge";
 import { ABOUT } from "@/data/portfolio.data";
-import me from "@/public/me.jpg";
+import me from "@/public/me.png";
 
 import Image from "next/image";
 import code from "@/icons/coded.svg";
