@@ -1,5 +1,6 @@
 packages:
   - .
-ignoredBuiltDependencies:
-  - sharp
-  - unrs-resolver
+allowBuilds:
+  '@tsparticles/engine': false
+  sharp: false
+  unrs-resolver: false

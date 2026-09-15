@@ -2,17 +2,17 @@
 
 export const HERO = {
   name: "Vincent Donaire Iglesia",
-  tagline: "PH-based 4th year BSIT student • PUP Santa Maria, Bulacan",
-  roles: ["Frontend Engineer", "Node.js Developer"],
+  tagline: "PH-based BSIT Graduate • PUP Santa Maria, Bulacan",
+  roles: ["Frontend Engineer", "Node.js Developer", "UI/UX Designer"],
   description:
     "building modern web apps with React/Next.js, Tailwind, and MongoDB.",
-  badges: ["React.js", "Next.js", "TypeScript", "Node.js", "PHP"],
+  badges: ["React.js", "Next.js", "TypeScript", "Node.js", "PHP", "Figma"],
 };
 
 // ─── ABOUT ───────────────────────────────────────────────────────────────────
 
 export const ABOUT = {
-  bio: "I'm a web developer and layout artist who enjoys the mix of logic and creativity. I'm currently a BSIT student focused on building responsive sites. When I'm not programming, I'm usually designing—I love using my eye for detail to create strong visual structures.",
+  bio: "Hi, I'm a BS Information Technology graduate, aspiring Front-End developer, and UI/UX designer. I bridge the gap between technical logic and visual design, building responsive digital experiences with a meticulous eye for detail.",
   tags: [
     "22 yrs old.",
     "Santa Maria, Bulacan",
@@ -298,8 +298,8 @@ export const EDUCATION = [
   {
     title:
       "Polytechnic University of the Philippines — Santa Maria, Bulacan Campus",
-    meta: "BS Information Technology • 2022–Present",
-    note: "President's Lister (1st Year to 3rd Year, 1st sem).",
+    meta: "BS Information Technology • 2026",
+    note: "Magna cum Laude | 1.27 GWA",
   },
   {
     title: "Immaculate Conception Polytechnic",
@@ -329,7 +329,7 @@ export const OTHER_SKILLS = ["Photoshop", "Canva", "Adobe Illustrator", "CapCut"
 
 export const CONTACT = {
   email: "vincent.iglesia07@gmail.com",
-  phone: "+63 920 334 1360",
+  phone: "+63 9242245936",
   location: "Santa Maria, Bulacan",
   status: "Open to entry-level opportunities",
 };
