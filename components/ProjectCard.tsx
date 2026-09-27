@@ -23,7 +23,7 @@ export default function AnimatedTestimonialsDemo() {
             key={cat}
             onClick={() => setActiveCategory(cat)}
             className={cn(
-              "relative px-4 py-1.5 rounded-2xl text-sm font-medium transition-colors",
+              "relative px-4 py-1.5 rounded-2xl text-sm font-medium  transition-colors",
               activeCategory === cat
                 ? "text-primary"
                 : "text-white/60 hover:text-white"
@@ -32,7 +32,7 @@ export default function AnimatedTestimonialsDemo() {
             {activeCategory === cat && (
               <motion.span
                 layoutId="project-tab-indicator"
-                className="absolute inset-0 bg-white rounded-md"
+                className="absolute inset-0 bg-white rounded-md w-full"
                 transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
               />
             )}

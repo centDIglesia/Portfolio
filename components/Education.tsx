@@ -74,20 +74,7 @@ export default function Education() {
         {/* Right column: Trainings + Other skills */}
         <div className="space-y-4">
           {/* Trainings */}
-          <div className="rounded-3xl border border-white/10 bg-white/3 p-8">
-            <h2 className={`text-2xl sm:text-3xl ${main.className} text-white`}>
-              Trainings & seminars
-            </h2>
-
-            <ul className="mt-6 space-y-3 text-sm text-white/70">
-              {TRAININGS.map((t) => (
-                <li key={t} className="flex gap-2">
-                  <span className="mt-1.75 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+       
 
           {/* Other skills (new) */}
           <div className="rounded-3xl border border-white/10 bg-white/3 p-8">
