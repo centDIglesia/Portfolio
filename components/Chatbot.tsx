@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Bot, Send, X } from "lucide-react";
+import { BotIcon } from "@solar-icons/react/bold-duotone/bot";
+import { SendSquareIcon } from "@solar-icons/react/bold-duotone/send-square";
+import { CloseCircleIcon } from "@solar-icons/react/bold-duotone/close-circle";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -128,7 +130,7 @@ export function Chatbot() {
             transition={{ duration: 0.3 }}
             className="fixed bottom-[4.5rem] left-1/2 -translate-x-1/2 z-[10001] pointer-events-none"
           >
-            <div className={`rounded-xl bg-white px-3 py-1.5 text-xs font-medium text-primary shadow-lg border border-black/5 whitespace-nowrap ${sub.className}`}>
+            <div className={`rounded-xl bg-white dark:bg-zinc-900 px-3 py-1.5 text-xs font-medium text-primary dark:text-foreground shadow-lg border border-black/5 dark:border-white/10 whitespace-nowrap ${sub.className}`}>
               Ask me anything! using the chatbot.
             </div>
           </motion.div>
@@ -144,7 +146,7 @@ export function Chatbot() {
         aria-label="Toggle chatbot"
       >
         <span className="absolute inset-0 animate-shine bg-linear-to-r from-transparent via-white/10 to-transparent" />
-        <Bot className="relative size-5 text-foreground animate-wiggle" />
+        <BotIcon className="relative text-primary-foreground animate-wiggle" size={20} />
       </Button>
 
       {/* Chat Window */}
@@ -156,24 +158,24 @@ export function Chatbot() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
             className={cn(
-              "fixed z-[10000] flex flex-col rounded-2xl border border-white/10 bg-white shadow-2xl",
+              "fixed z-[10000] flex flex-col rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-900 shadow-2xl",
               "bottom-20 left-1/2 -translate-x-1/2 w-125 h-125",
               "max-sm:w-[calc(100%-2rem)] max-sm:bottom-20 max-sm:h-[calc(100vh-8rem)] overflow-clip",
             )}
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-black/5 px-4 py-3">
+            <div className="flex items-center justify-between border-b border-black/5 dark:border-white/10 px-4 py-3">
               <div className="flex items-center gap-2">
                 <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary">
-                  <Bot className="h-4 w-4 text-white" />
+                  <BotIcon className="text-primary-foreground" size={16} />
                 </div>
                 <div>
                   <p
-                    className={`text-sm font-semibold text-primary ${sub.className}`}
+                    className={`text-sm font-semibold text-primary dark:text-foreground ${sub.className}`}
                   >
                     Vincent&apos;s Assistant
                   </p>
-                  <p className="text-[10px] text-primary/50">Ask me anything</p>
+                  <p className="text-[10px] text-primary/50 dark:text-foreground/50">Ask me anything</p>
                 </div>
               </div>
               <Button
@@ -183,7 +185,7 @@ export function Chatbot() {
                 onClick={() => setIsOpen(false)}
                 aria-label="Close chatbot"
               >
-                <X className="h-4 w-4" />
+                <CloseCircleIcon size={16} />
               </Button>
             </div>
 
@@ -204,8 +206,8 @@ export function Chatbot() {
                     className={cn(
                       "max-w-[80%] rounded-xl px-3 py-2 text-sm leading-relaxed",
                       msg.role === "user"
-                        ? "bg-primary text-white rounded-br-sm"
-                        : "bg-slate-100 text-primary rounded-bl-sm",
+                        ? "bg-primary text-primary-foreground rounded-br-sm"
+                        : "bg-slate-100 dark:bg-zinc-800 text-primary dark:text-foreground rounded-bl-sm",
                     )}
                   >
                     {msg.content ? (
@@ -218,7 +220,7 @@ export function Chatbot() {
                             ol: ({ children }) => <ol className="list-decimal ml-4 space-y-1">{children}</ol>,
                             li: ({ children }) => <li>{children}</li>,
                             p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
-                            code: ({ children }) => <code className="bg-black/5 px-1 rounded text-xs">{children}</code>,
+                            code: ({ children }) => <code className="bg-black/5 dark:bg-white/10 px-1 rounded text-xs">{children}</code>,
                           }}
                         >
                           {msg.content}
@@ -241,14 +243,14 @@ export function Chatbot() {
             {/* Input */}
             <form
               onSubmit={handleSubmit}
-              className="px-3 py-3 from-bg-white/5 to-transparent bg-linear-to-t  backdrop-blur-md absolute bottom-0 w-full"
+              className="px-3 py-3 from-white/80 dark:from-zinc-900/80 to-transparent bg-linear-to-t  backdrop-blur-md absolute bottom-0 w-full"
             >
               <div className="relative">
                 <Input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Type a message..."
-                  className="w-full rounded-2xl  bg-white text-sm text-primary pr-11 py-6"
+                  className="w-full rounded-2xl  bg-white dark:bg-zinc-800 text-sm text-primary dark:text-foreground pr-11 py-6"
                   disabled={isLoading}
                   aria-label="Chat message input"
                 />
@@ -259,7 +261,7 @@ export function Chatbot() {
                   disabled={isLoading || !input.trim()}
                   aria-label="Send message"
                 >
-                  <Send className="h-3 w-3" />
+                  <SendSquareIcon size={12} />
                 </Button>
               </div>
             </form>

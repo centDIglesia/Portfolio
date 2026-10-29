@@ -1,10 +1,8 @@
 "use client";
 
-import {
-  IconArrowLeft,
-  IconArrowRight,
-  IconExternalLink,
-} from "@tabler/icons-react";
+import { AltArrowLeftIcon } from "@solar-icons/react/bold-duotone/alt-arrow-left";
+import { AltArrowRightIcon } from "@solar-icons/react/bold-duotone/alt-arrow-right";
+import { SquareArrowRightUpIcon } from "@solar-icons/react/bold-duotone/square-arrow-right-up";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Component as EtheralShadow } from "@/components/etheral-shadow";
 import { FullscreenImagePreview } from "./fullscreen-image-preview";
-import { Maximize } from "lucide-react";
+import { MaximizeSquareIcon } from "@solar-icons/react/bold-duotone/maximize-square";
 
 type Project = {
   title: string;
@@ -125,7 +123,7 @@ export const AnimatedProjects = ({
                 aria-label="Previous image"
                 variant={"custom"}
               >
-                <IconArrowLeft className="h-5 w-5  group-hover/button:rotate-12 " />
+                <AltArrowLeftIcon className="h-5 w-5  group-hover/button:rotate-12 " />
               </Button>
 
               <Button
@@ -134,7 +132,7 @@ export const AnimatedProjects = ({
                 className="h-7 w-7  flex items-center justify-center group/button"
                 aria-label="Next image"
               >
-                <IconArrowRight className="h-5 w-5  group-hover/button:-rotate-12 transition-transform duration-300" />
+                <AltArrowRightIcon className="h-5 w-5  group-hover/button:-rotate-12 transition-transform duration-300" />
               </Button>
 
               <FullscreenImagePreview
@@ -147,7 +145,7 @@ export const AnimatedProjects = ({
                     className="h-7 w-7"
                     aria-label="Full screen"
                   >
-                    <Maximize className="h-5 w-5" />
+                    <MaximizeSquareIcon className="h-5 w-5" />
                   </Button>
                 }
               />
@@ -165,7 +163,7 @@ export const AnimatedProjects = ({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-primary-foreground text-sm"
                 >
-                  Preview <IconExternalLink className="h-4 w-4" />
+                  Preview <SquareArrowRightUpIcon className="h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -185,7 +183,7 @@ export const AnimatedProjects = ({
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
             className={cn(
-              "rounded-xl bg-white relative p-6 md:p-8 shadow-xl",
+              "rounded-xl bg-white dark:bg-zinc-900/90 border border-black/10 dark:border-white/10 relative p-6 md:p-8 shadow-xl",
               isRight ? "text-right" : "text-left", // Tailwind text alignment [web:41]
             )}
           >
@@ -195,7 +193,7 @@ export const AnimatedProjects = ({
                 noise={{ opacity: 0.15, scale: 1.2 }}
               />
             </div>
-            <h3 className={`text-2xl font-bold text-primary ${main.className}`}>
+            <h3 className={`text-2xl font-bold text-primary dark:text-foreground ${main.className}`}>
               {project.title}
             </h3>
 
@@ -212,13 +210,13 @@ export const AnimatedProjects = ({
             )}
 
             <p
-              className={`text-sm font-bold text-primary mt-3 ${sub.className}`}
+              className={`text-sm font-bold text-primary dark:text-foreground mt-3 ${sub.className}`}
             >
               {project.description}
             </p>
 
             {!!project.features?.length && (
-              <ul className={`text-sm text-primary mt-4 ${sub.className}`}>
+              <ul className={`text-sm text-primary dark:text-foreground/70 mt-4 ${sub.className}`}>
                 {project.features.map((f) =>
                   isRight ? (
                     <li className="mb-2" key={f}>

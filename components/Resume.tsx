@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { BookOpen, Briefcase } from "lucide-react";
+import { BookIcon } from "@solar-icons/react/bold-duotone/book";
+import { CaseIcon } from "@solar-icons/react/bold-duotone/case";
 
 export default function Resume() {
   return (
@@ -10,7 +11,7 @@ export default function Resume() {
       {/* Education */}
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-6">
-          <BookOpen className="text-primary" size={24} />
+          <BookIcon className="text-primary" size={24} />
           <h3 className="text-2xl font-semibold">Education</h3>
         </div>
 
@@ -36,7 +37,7 @@ export default function Resume() {
       {/* Experience */}
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-6">
-          <Briefcase className="text-primary" size={24} />
+          <CaseIcon className="text-primary" size={24} />
           <h3 className="text-2xl font-semibold">Experience</h3>
         </div>
 

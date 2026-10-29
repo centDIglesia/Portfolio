@@ -11,7 +11,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { AltArrowLeftIcon } from "@solar-icons/react/bold-duotone/alt-arrow-left";
+import { AltArrowRightIcon } from "@solar-icons/react/bold-duotone/alt-arrow-right";
 
 type Props = {
   images: string[];
@@ -119,7 +120,7 @@ export function FullscreenImagePreview({
           aria-label="Previous image"
           disabled={!hasImages || images.length === 1}
         >
-          <IconArrowLeft className="h-6 w-6" />
+          <AltArrowLeftIcon className="h-6 w-6" />
         </Button>
 
         <Button
@@ -130,7 +131,7 @@ export function FullscreenImagePreview({
           aria-label="Next image"
           disabled={!hasImages || images.length === 1}
         >
-          <IconArrowRight className="h-6 w-6" />
+          <AltArrowRightIcon className="h-6 w-6" />
         </Button>
 
         {/* Counter */}

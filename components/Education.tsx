@@ -45,14 +45,14 @@ export default function Education() {
                     className="w-full items-start gap-4"
                   >
                     <StepperTrigger className="w-full items-start gap-4">
-                      <div className="flex flex-col items-center">
+                      <div className="flex flex-col items-center self-stretch">
                         <StepperIndicator className="bg-white/5 text-white/70 data-[state=active]:bg-white/15 data-[state=completed]:bg-white/15 data-[state=active]:text-white data-[state=completed]:text-white" />
                         {!isLast && (
-                          <StepperSeparator className="mt-2 h-10 w-px bg-white/10 group-data-[state=completed]/step:bg-white/30" />
+                          <StepperSeparator className="my-2 flex-1 group-data-[orientation=vertical]/stepper:h-auto group-data-[orientation=vertical]/stepper:w-px bg-white/10 group-data-[state=completed]/step:bg-white/30" />
                         )}
                       </div>
 
-                      <div className="min-w-0 flex-1 text-left">
+                      <div className={`min-w-0 flex-1 text-left ${isLast ? "" : "pb-6"}`}>
                         <StepperTitle className="text-sm font-semibold text-white">
                           {e.title}
                         </StepperTitle>
@@ -77,7 +77,7 @@ export default function Education() {
        
 
           {/* Other skills (new) */}
-          <div className="rounded-3xl border border-white/10 bg-white/3 p-8">
+          <div className="h-full rounded-3xl border border-white/10 bg-white/3 p-8">
             <h2 className={`text-2xl sm:text-3xl ${main.className} text-white`}>
               Other skills
             </h2>
@@ -86,7 +86,7 @@ export default function Education() {
               {OTHER_SKILLS.map((s) => (
                 <span
                   key={s}
-                  className="rounded-full border border-white/10 bg-white/4 px-3 py-1 text-xs font-semibold text-white/80"
+                  className="rounded-full border-b border-white/15 dark:border-primary bg-white/4 px-3 py-1 text-xs font-semibold text-white/80"
                 >
                   {s}
                 </span>

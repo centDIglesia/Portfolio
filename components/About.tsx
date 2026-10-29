@@ -4,46 +4,37 @@ import { Badge } from "@/components/ui/badge";
 import { ABOUT } from "@/data/portfolio.data";
 import me from "@/public/me.png";
 
-import Image from "next/image";
-import code from "@/icons/coded.svg";
-import design from "@/icons/design.svg";
+import { CodeSquareIcon } from "@solar-icons/react/bold-duotone/code-square";
+import { Palette2Icon } from "@solar-icons/react/bold-duotone/palette-2";
 
 export default function About() {
   return (
-    <section className="flex flex-col items-start gap-6 rounded-xl border border-black/10 bg-white p-6 shadow-2xl sm:p-8 sm:px-12 md:flex-row md:items-center md:gap-12">
+    <section className="flex flex-col items-start gap-6 rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-900/90 p-6 shadow-2xl sm:p-8 sm:px-12 md:flex-row md:items-center md:gap-12">
       {/* Image */}
       <div className="relative mx-auto shrink-0 isolate md:mx-0">
         {/* Floating square (top-right) */}
         <div className="absolute -right-2 top-6 z-20 rotate-4 -translate-y-2 translate-x-2">
-          <div className="flex size-12 items-center justify-center rounded-xl bg-white shadow-lg backdrop-blur sm:size-14">
-            <Image
-              src={code}
-              alt="Code"
-              width={32}
-              height={32}
-              className="fill-primary"
-              priority={false}
+          <div className="flex size-12 items-center justify-center rounded-xl bg-white dark:bg-zinc-800 shadow-lg backdrop-blur sm:size-14">
+            <CodeSquareIcon
+              size={32}
+              className="size-7 sm:size-8 text-primary dark:text-foreground"
             />
           </div>
         </div>
 
         {/* Floating square (left) */}
         <div className="absolute -left-7 top-36 z-20 -rotate-8 -translate-y-2 translate-x-2">
-          <div className="flex size-14 items-center justify-center rounded-xl bg-white shadow-lg backdrop-blur sm:size-16">
-            <Image
-              src={design}
-              alt="design"
-              width={36}
-              height={36}
-              className="fill-primary"
-              priority={false}
+          <div className="flex size-14 items-center justify-center rounded-xl bg-white dark:bg-zinc-800 shadow-lg backdrop-blur sm:size-16">
+            <Palette2Icon
+              size={36}
+              className="size-8 sm:size-9 text-primary dark:text-foreground"
             />
           </div>
         </div>
 
         <div className="absolute inset-x-0 -bottom-10 -z-10 mx-auto size-44 rounded-full bg-primary blur-3xl sm:size-52" />
 
-        <div className="relative z-10 h-56 w-44 overflow-hidden rounded-xl border border-black/10 -rotate-3 transition-transform duration-200 ease-in-out hover:rotate-0 sm:h-60 sm:w-52">
+        <div className="relative z-10 h-56 w-44 overflow-hidden rounded-xl border border-black/10 dark:border-white/10 -rotate-3 transition-transform duration-200 ease-in-out hover:rotate-0 sm:h-60 sm:w-52">
           <DynamicBlurImage
             src={me}
             alt="Portrait photo"
@@ -57,13 +48,13 @@ export default function About() {
       {/* Text */}
       <div className="min-w-0 flex-1">
         <h2
-          className={`text-2xl text-center sm:text-left font-medium sm:text-3xl ${main.className} text-primary`}
+          className={`text-2xl text-center sm:text-left font-medium sm:text-3xl ${main.className} text-primary dark:text-foreground`}
         >
           About me
         </h2>
 
         <p
-          className={`mt-3 max-w-3xl text-center sm:text-left text-sm leading-6 text-primary/70 sm:text-base ${sub.className}`}
+          className={`mt-3 max-w-3xl text-center sm:text-left text-sm leading-6 text-primary/70 dark:text-foreground/70 sm:text-base ${sub.className}`}
         >
           {ABOUT.bio}
         </p>
