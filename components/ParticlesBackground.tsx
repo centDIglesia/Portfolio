@@ -1,23 +1,35 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
+import { useEffect, useMemo, useState, type ComponentType } from "react";
+import type { IParticlesProps } from "@tsparticles/react";
 import type { ISourceOptions } from "@tsparticles/engine";
 
 export default function ParticlesBackground() {
-  const [ready, setReady] = useState(false);
+  const [Particles, setParticles] =
+    useState<ComponentType<IParticlesProps> | null>(null);
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => setReady(true));
+    let cancelled = false;
+
+    // Loaded after hydration so tsparticles stays out of the initial JS bundle
+    Promise.all([import("@tsparticles/react"), import("@tsparticles/slim")]).then(
+      async ([{ default: Component, initParticlesEngine }, { loadSlim }]) => {
+        await initParticlesEngine(async (engine) => {
+          await loadSlim(engine);
+        });
+        if (!cancelled) setParticles(() => Component);
+      },
+    );
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const options: ISourceOptions = useMemo(
     () => ({
       fullScreen: { enable: true, zIndex: -1 },
-      fpsLimit: 60,
+      fpsLimit: 30,
       detectRetina: true,
       particles: {
         number: { value: 30, density: { enable: true } },
@@ -25,13 +37,13 @@ export default function ParticlesBackground() {
         opacity: { value: 1 },
         size: { value: { min: .5, max: 1 } },
         move: { enable: true, speed: .3, direction: "none" },
-        links: { enable: true, distance: 10, opacity: 0, width: 0 },
+        links: { enable: false },
       },
     }),
     [],
   );
 
-  if (!ready) return null;
+  if (!Particles) return null;
 
   return <Particles id="tsparticles" options={options} />;
 }

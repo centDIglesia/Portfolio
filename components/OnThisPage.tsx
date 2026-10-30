@@ -18,7 +18,12 @@ export function OnThisPage() {
   const [activeId, setActiveId] = useState("hero");
 
   useEffect(() => {
-    const handleScroll = () => {
+    // The nav is hidden below xl, so skip the layout reads there
+    const xl = window.matchMedia("(width >= 80rem)");
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
       const bottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 300;
       if (bottom) {
         setActiveId("contact");
@@ -38,9 +43,19 @@ export function OnThisPage() {
       setActiveId(current);
     };
 
+    const handleScroll = () => {
+      if (!xl.matches || frame) return;
+      frame = requestAnimationFrame(update);
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
+    xl.addEventListener("change", handleScroll);
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      xl.removeEventListener("change", handleScroll);
+      cancelAnimationFrame(frame);
+    };
   }, []);
 
   const handleClick = (id: string) => {

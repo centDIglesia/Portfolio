@@ -1,4 +1,4 @@
-
+import type { Viewport } from "next";
 import "./globals.css";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import { SiteNavbar } from "@/components/site-navbar";
@@ -6,6 +6,11 @@ import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import { Component as EtheralShadow  } from "@/components/etheral-shadow";
 import { sub } from "@/font/font";
 import { ThemeProvider } from "@/components/theme-provider";
+
+export const viewport: Viewport = {
+  // On Android, shrink the page when the keyboard opens so the full-screen chat input stays visible
+  interactiveWidget: "resizes-content",
+};
 
 export default function RootLayout({
   children,

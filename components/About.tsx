@@ -2,7 +2,7 @@ import { main, sub } from "@/font/font";
 import DynamicBlurImage from "@/components/ui/DynamicBlurImage";
 import { Badge } from "@/components/ui/badge";
 import { ABOUT } from "@/data/portfolio.data";
-import me from "@/public/me.png";
+import me from "@/public/me.webp";
 
 import { CodeSquareIcon } from "@solar-icons/react/bold-duotone/code-square";
 import { Palette2Icon } from "@solar-icons/react/bold-duotone/palette-2";

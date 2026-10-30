@@ -5,14 +5,13 @@ type Props = Omit<ImageProps, "placeholder"> & {
   blurDataURL?: string;
 };
 
-export default function DynamicBlurImage({ blurDataURL, ...props }: Props) {
+export default function DynamicBlurImage({ blurDataURL, alt, ...props }: Props) {
   return (
     <Image
       {...props}
-      alt={"img"}
+      alt={alt}
       placeholder={blurDataURL ? "blur" : "empty"}
-          blurDataURL={blurDataURL}
-          
+      blurDataURL={blurDataURL}
     />
   );
 }

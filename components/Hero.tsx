@@ -43,7 +43,7 @@ export default function Hero() {
           {HERO.badges.map((item) => (
             <span
               key={item}
-              className="rounded-full border-b border-white/15 dark:border-primary bg-white/4 px-3 py-1 text-xs text-white/70"
+              className="rounded-full border-t border-white/15 dark:border-primary bg-white/4 px-3 py-1 text-xs text-white/70"
             >
               {item}
             </span>

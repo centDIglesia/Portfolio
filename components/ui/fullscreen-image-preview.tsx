@@ -11,8 +11,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { AltArrowLeftIcon } from "@solar-icons/react/bold-duotone/alt-arrow-left";
-import { AltArrowRightIcon } from "@solar-icons/react/bold-duotone/alt-arrow-right";
+import { AltArrowLeftIcon } from "@solar-icons/react/bold/alt-arrow-left";
+import { AltArrowRightIcon } from "@solar-icons/react/bold/alt-arrow-right";
 
 type Props = {
   images: string[];

@@ -6,6 +6,8 @@ import {
   useMotionValue,
   AnimationPlaybackControls,
 } from "framer-motion";
+import shadowMask from "@/public/etheral-mask.webp";
+import noiseTexture from "@/public/etheral-noise.png";
 
 // Type definitions
 interface ResponsiveImage {
@@ -167,7 +169,7 @@ export function Component({
         <div
           style={{
             backgroundColor: color,
-            maskImage: `url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png')`,
+            maskImage: `url('${shadowMask.src}')`,
             maskSize: sizing === "stretch" ? "100% 100%" : "cover",
             maskRepeat: "no-repeat",
             maskPosition: "center",
@@ -193,7 +195,7 @@ export function Component({
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: `url("https://framerusercontent.com/images/g0QcWrxr87K0ufOxIUFBakwYA8.png")`,
+            backgroundImage: `url("${noiseTexture.src}")`,
             backgroundSize: noise.scale * 200,
             backgroundRepeat: "repeat",
             opacity: noise.opacity / 2,

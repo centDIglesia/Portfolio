@@ -20,7 +20,7 @@ export default function AnimatedTestimonialsDemo() {
   return (
     <div>
       <div
-        className={`flex items-center justify-center gap-1 sm:gap-2 border border-white/10 rounded-2xl bg-white/10 p-1 w-fit max-w-full mx-auto mb-12 ${sub.className}`}
+        className={`flex items-center justify-center gap-1 sm:gap-2 rounded-2xl bg-white p-1 w-fit max-w-full mx-auto mb-12 ${sub.className}`}
       >
         {PROJECT_CATEGORIES.map((cat) => (
           <button
@@ -32,14 +32,14 @@ export default function AnimatedTestimonialsDemo() {
                 ? "px-2.5 sm:px-4"
                 : "px-3 sm:px-4",
               activeCategory === cat
-                ? "text-primary font-semibold"
-                : "text-white/60 hover:text-white"
+                ? "text-primary-foreground font-semibold"
+                : "text-primary/60 hover:text-primary"
             )}
           >
             {activeCategory === cat && (
               <motion.span
                 layoutId="project-tab-indicator"
-                className="absolute inset-0 bg-white rounded-xl"
+                className="absolute inset-0 bg-primary rounded-xl"
                 transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
               />
             )}

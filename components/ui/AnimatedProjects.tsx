@@ -1,8 +1,8 @@
 "use client";
 
-import { AltArrowLeftIcon } from "@solar-icons/react/bold-duotone/alt-arrow-left";
-import { AltArrowRightIcon } from "@solar-icons/react/bold-duotone/alt-arrow-right";
-import { SquareArrowRightUpIcon } from "@solar-icons/react/bold-duotone/square-arrow-right-up";
+import { AltArrowLeftIcon } from "@solar-icons/react/bold/alt-arrow-left";
+import { AltArrowRightIcon } from "@solar-icons/react/bold/alt-arrow-right";
+import { SquareArrowRightUpIcon } from "@solar-icons/react/bold/square-arrow-right-up";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,7 +13,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Component as EtheralShadow } from "@/components/etheral-shadow";
 import { FullscreenImagePreview } from "./fullscreen-image-preview";
-import { MaximizeSquareIcon } from "@solar-icons/react/bold-duotone/maximize-square";
+import { MaximizeSquareIcon } from "@solar-icons/react/bold/maximize-square";
+
+const CONTROL_CLASS =
+  "rounded-lg text-primary hover:bg-primary/10 hover:text-primary active:scale-95 dark:text-foreground dark:hover:bg-white/10 dark:hover:text-foreground";
 
 type Project = {
   title: string;
@@ -108,6 +111,7 @@ export const AnimatedProjects = ({
                     alt={project.title}
                     width={800}
                     height={800}
+                    sizes="(max-width: 767px) 100vw, (max-width: 1152px) 50vw, 576px"
                     draggable={false}
                     className="h-full w-full rounded-3xl object-cover object-center"
                   />
@@ -115,24 +119,27 @@ export const AnimatedProjects = ({
               ))}
             </AnimatePresence>
 
-            {/* Controls pinned to top-right of the image container */}
-            <div className="absolute top-6 right-6 z-5220 flex gap-2">
+            {/* Image toolbar pinned to top-right: solid background instead of a blur,
+                so it stays cheap to draw while the images animate underneath */}
+            <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-5220 flex items-center rounded-xl bg-white/90 p-0.5 shadow-sm dark:bg-zinc-900/90">
               <Button
+                variant="ghost"
+                size="icon-sm"
                 onClick={handlePrevImage}
-                className="h-7 w-7   flex items-center justify-center group/button"
+                className={CONTROL_CLASS}
                 aria-label="Previous image"
-                variant={"custom"}
               >
-                <AltArrowLeftIcon className="h-5 w-5  group-hover/button:rotate-12 " />
+                <AltArrowLeftIcon className="size-5" />
               </Button>
 
               <Button
+                variant="ghost"
+                size="icon-sm"
                 onClick={handleNextImage}
-                variant={"custom"}
-                className="h-7 w-7  flex items-center justify-center group/button"
+                className={CONTROL_CLASS}
                 aria-label="Next image"
               >
-                <AltArrowRightIcon className="h-5 w-5  group-hover/button:-rotate-12 transition-transform duration-300" />
+                <AltArrowRightIcon className="size-5" />
               </Button>
 
               <FullscreenImagePreview
@@ -141,17 +148,18 @@ export const AnimatedProjects = ({
                 initialIndex={activeImage}
                 trigger={
                   <Button
-                    variant="custom"
-                    className="h-7 w-7"
+                    variant="ghost"
+                    size="icon-sm"
+                    className={CONTROL_CLASS}
                     aria-label="Full screen"
                   >
-                    <MaximizeSquareIcon className="h-5 w-5" />
+                    <MaximizeSquareIcon className="size-5" />
                   </Button>
                 }
               />
             </div>
 
-            <div className="absolute top-6 left-6 z-5220 flex gap-2">
+            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-5220 flex gap-2">
               <div
                 className={cn(
                   isRight ? "flex justify-end" : "flex justify-start",
@@ -161,9 +169,9 @@ export const AnimatedProjects = ({
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-primary-foreground text-sm"
+                  className="inline-flex h-9 items-center gap-2 rounded-xl bg-primary px-4 text-sm font-medium text-primary-foreground shadow-sm transition hover:bg-primary/90 active:scale-95"
                 >
-                  Preview <SquareArrowRightUpIcon className="h-4 w-4" />
+                  Preview <SquareArrowRightUpIcon className="size-4" />
                 </Link>
               </div>
             </div>

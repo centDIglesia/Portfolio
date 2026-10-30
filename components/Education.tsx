@@ -86,7 +86,7 @@ export default function Education() {
               {OTHER_SKILLS.map((s) => (
                 <span
                   key={s}
-                  className="rounded-full border-b border-white/15 dark:border-primary bg-white/4 px-3 py-1 text-xs font-semibold text-white/80"
+                  className="rounded-full border-t border-white/15 dark:border-primary bg-white/4 px-3 py-1 text-xs font-semibold text-white/80"
                 >
                   {s}
                 </span>
