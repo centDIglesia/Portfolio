@@ -119,9 +119,8 @@ export const AnimatedProjects = ({
               ))}
             </AnimatePresence>
 
-            {/* Image toolbar pinned to top-right: solid background instead of a blur,
-                so it stays cheap to draw while the images animate underneath */}
-            <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-5220 flex items-center rounded-xl bg-white/90 p-0.5 shadow-sm dark:bg-zinc-900/90">
+            {/* Image toolbar pinned to top-right, on a frosted (blurred) background */}
+            <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-5220 flex items-center rounded-xl bg-white/20 p-0.5 backdrop-blur-md dark:bg-zinc-900/60">
               <Button
                 variant="ghost"
                 size="icon-sm"
